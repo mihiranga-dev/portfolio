@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { ArrowUpRight } from "lucide-react";
+import { skillCategories } from "@/data/skills";
 
 export default function Home() {
   return (
@@ -56,6 +57,36 @@ export default function Home() {
               </div>
             </div>
           </Link>
+        ))}
+      </div>
+    </section>
+
+    <section className="pb-20">
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold tracking-tight">Technical stack</h2>
+        <p className="text-slate-600 dark:text-slate-400 mt-2">
+          The tools and technologies I use to bring solution to life.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {skillCategories.map((category) => (
+          <div key={category.title} className="space-y-4">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-primary">
+              {category.title}
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {category.skills.map((skills) => (
+                <span
+                  key={skills}
+                  className="px-3 py-1.5 text-sm font-medium rounded-md border border-gray-200 dark:border-gray-800 bg-white dark:bg-dark/30 text-slate-700 dark:text-slate-300 transition-all 
+                  duration-300 hover:border-primary hover:text-primary hover:scale-105 cursor-default"
+                >
+                  {skills}
+                </span>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </section>
