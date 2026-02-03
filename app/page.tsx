@@ -19,7 +19,7 @@ export default function Home() {
               <h2 className="text-xl md:text-2xl font-medium text-slate-500 font-mono">
                 Hi there 👋 I'm
               </h2>
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground h-[120px] md:h-auto leading-[1.1]">
+              <h1 className="text-6xl sm:text-7xl md:text-7xl font-extrabold tracking-tight text-foreground min-h-[160px] sm:min-h-[120px] md:min-h-0 leading-[1.1] flex items-center justify-center md:justify-start">
                 <Typewriter
                   options={{
                     strings: [
@@ -35,8 +35,8 @@ export default function Home() {
               </h1>
             </div>
             
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
-              Architecting scalable enterprise systems and high-performance applications. <br/>
+            <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mx-auto md:mx-0">
+              Architecting scalable enterprise systems and high-performance applications. 
               I turn complex business logic into seamless digital experiences.
             </p>
 
@@ -54,26 +54,26 @@ export default function Home() {
 
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-full blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-            <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white dark:border-dark shadow-2xl">
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white dark:border-dark shadow-2xl">
               <Image src="/profile.jpg" alt="Mihiranga Dissanayake" fill className="object-cover" priority />
             </div>
           </div>
         </section>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-8 rounded-2xl border border-slate-200 dark:border-gray-800 bg-slate-50/50 dark:bg-dark/50 backdrop-blur-sm">
-        <div className="text-center md:text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-8 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-gray-800 bg-slate-50/50 dark:bg-dark/50 backdrop-blur-sm">
+        <div className="text-center">
           <span className="block text-4xl font-bold text-foreground">1+</span>
           <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Years Experience</span>
         </div>
-        <div className="text-center md:text-left">
+        <div className="text-center">
           <span className="block text-4xl font-bold text-foreground">20+</span>
           <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">GitHub Repos</span>
         </div>
-        <div className="text-center md:text-left">
+        <div className="text-center">
           <span className="block text-4xl font-bold text-foreground">150+</span>
           <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Contributions</span>
         </div>
-        <div className="text-center md:text-left">
+        <div className="text-center">
           <span className="block text-4xl font-bold text-foreground">5+</span>
           <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Full-Stack Projects</span>
         </div>
@@ -84,8 +84,8 @@ export default function Home() {
         <h2 className="text-3xl font-bold tracking-tight text-foreground">
           Featured <span className="text-primary/80">Works</span>
         </h2>
-        <Link href="/projects" className="text-[18px] hover:scale-110 transition-transform font-medium">
-          View all projects
+        <Link href="/projects" className="text-sm md:text-base text-primary hover:scale-110 transition-transform font-medium">
+            View all projects
         </Link>
       </div>
 
