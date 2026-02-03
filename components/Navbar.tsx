@@ -27,8 +27,8 @@ export default function Navbar() {
     return (
         <nav className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-dark/80 backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-                <Link href="/" className="font-mono text-xl font-bold text-primary tracking-tighter">
-                    Mihiranga Dissanayake
+                <Link href="/" className="font-outfit text-xl font-bold tracking-tight hover:text-primary transition-colors">
+                    mihiranga<span className="text-primary">.dev</span>
                 </Link>
 
                 <div className="hidden md:flex gap-8 items-center">
