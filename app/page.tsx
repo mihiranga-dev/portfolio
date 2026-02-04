@@ -6,8 +6,14 @@ import Typewriter from "typewriter-effect";
 import { projects } from "@/data/projects";
 import { skillCategories } from "@/data/skills";
 import { ArrowUpRight, Github, Linkedin, FileText } from "lucide-react";
+import { journey } from "@/data/journey";
+import { GraduationCap, Code, Terminal, Calendar } from "lucide-react";
 
 export default function Home() {
+  const seExperience = journey.filter(item => 
+    item.category === "education" || item.category === "independent"
+  );
+
   return (
     <div className="space-y-32"> 
       
@@ -113,7 +119,8 @@ export default function Home() {
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 text-xs font-mono font-medium rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
+                    className="px-3 py-1 text-xs font-mono font-medium rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 transition-all 
+                  duration-300 hover:scale-105 cursor-default"
                   >
                     {t}
                   </span>
@@ -155,6 +162,68 @@ export default function Home() {
         ))}
       </div>
     </section>
+
+    <section>
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">
+            Experience
+          </h2>
+        </div>
+
+        <div className="space-y-0">
+          {seExperience.map((item, index) => (
+            <div key={item.id} className="group relative flex gap-8 pb-12 last:pb-0">
+              
+              {index !== seExperience.length - 1 && (
+                <div className="absolute left-[19px] top-10 w-[2px] h-full bg-slate-200 dark:bg-gray-800 group-hover:bg-primary/30 transition-colors" />
+              )}
+
+              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark shadow-sm group-hover:border-primary transition-colors">
+                {item.category === "education" ? (
+                  <GraduationCap className="h-5 w-5 text-slate-500 group-hover:text-primary transition-colors" />
+                ) : (
+                  <Terminal className="h-5 w-5 text-slate-500 group-hover:text-primary transition-colors" />
+                )}
+              </div>
+
+              <div className="flex flex-1 flex-col gap-1 pt-1">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-xs font-medium text-slate-400 font-mono">
+                    <Calendar className="h-3 w-3" />
+                    {item.date}
+                  </div>
+                </div>
+                
+                <p className="text-sm font-semibold">
+                  {item.location}
+                </p>
+
+                <ul className="mt-4 space-y-2">
+                  {item.description.slice(0, 2).map((point, i) => (
+                    <li key={i} className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300 dark:bg-gray-700" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {item.tags.map((tag) => (
+                    <span key={tag} className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-slate-100 dark:bg-gray-800/50 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-gray-800 transition-all 
+                  duration-300 hover:border-primary hover:text-primary hover:scale-105 cursor-default">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
     </div>
   );
