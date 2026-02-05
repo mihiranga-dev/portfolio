@@ -26,7 +26,13 @@ export default function Navbar() {
     return (
         <nav className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-dark/80 backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-                <Link href="/" className="font-outfit text-xl font-bold tracking-tight hover:text-primary transition-colors">
+                <Link 
+                    href="/" 
+                    onClick={() => {
+                        setIsOpen(false);
+                        window.scrollTo(0, 0);
+                    }} 
+                    className="font-outfit text-xl font-bold tracking-tight hover:text-primary transition-colors">
                     mihiranga<span className="text-primary">.dev</span>
                 </Link>
 
@@ -35,6 +41,10 @@ export default function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
+                            onClick={() => {
+                                setIsOpen(false);
+                                window.scrollTo(0, 0);
+                            }}
                             className="text-sm font-medium hover:text-primary transition-colors font-sans"
                         >
                             {link.name}
@@ -75,7 +85,10 @@ export default function Navbar() {
                             <Link
                             key={link.name}
                             href={link.href}
-                            onClick={() => setIsOpen(false)}
+                            onClick={() => {
+                                setIsOpen(false);
+                                window.scrollTo(0, 0);
+                            }}
                             className="text-sm font-medium hover:text-primary transition-colors"
                             >
                                 {link.name}

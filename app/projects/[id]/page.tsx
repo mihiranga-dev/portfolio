@@ -14,7 +14,7 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
     if (!project) return notFound();
 
   return (
-    <div className="max-w-4xl mx-auto py-12 md:py-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
+    <div className="max-w-4xl mx-auto py-6 md:py-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
       <Link href="/" className="group flex items-center gap-2 text-slate-500 hover:text-primary transition-colors mb-12">
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
         Back to Home

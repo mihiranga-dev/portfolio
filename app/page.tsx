@@ -8,6 +8,26 @@ import { skillCategories } from "@/data/skills";
 import { ArrowUpRight, Github, Linkedin, FileText, Mail, Send } from "lucide-react";
 import { journey } from "@/data/journey";
 import { GraduationCap, Code, Terminal, Calendar } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  },
+};
 
 export default function Home() {
   const seExperience = journey.filter(item => 
@@ -18,8 +38,13 @@ export default function Home() {
     <div className="space-y-32"> 
       
       <div className="space-y-8 md:space-y-12">
-        
-        <section className="flex flex-col-reverse md:flex-row items-center justify-between pt-12 md:pt-20 pb-0 gap-12">
+       <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+        <section className="flex flex-col-reverse md:flex-row items-center justify-between pt-12 md:pt-8 pb-0 gap-12">
           <div className="flex-1 space-y-6 text-center md:text-left">
             <div className="space-y-2">
               <h2 className="text-xl md:text-2xl font-medium text-slate-500 font-mono">
@@ -65,28 +90,37 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </motion.section>
+
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-8 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-gray-800 bg-slate-50/50 dark:bg-dark/50 backdrop-blur-sm">
         <div className="text-center">
-          <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">1+</span>
+          <span className="block text-4xl font-extrabold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">1+</span>
           <span className="text-[13px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Years Experience</span>
         </div>
         <div className="text-center">
-          <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">20+</span>
+          <span className="block text-4xl font-extrabold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">20+</span>
           <span className="text-[13px] uppercase tracking-[0.2em] text-slate-500 font-semibold">GitHub Repos</span>
         </div>
         <div className="text-center">
-          <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">150+</span>
+          <span className="block text-4xl font-extrabold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">150+</span>
           <span className="text-[13px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Contributions</span>
         </div>
         <div className="text-center">
-          <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">5+</span>
+          <span className="block text-4xl font-extrabold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">5+</span>
           <span className="text-[13px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Full-Stack Projects</span>
         </div>
       </div>
+      </motion.section>
 
-    <section>
-      <div className="flex items-center justify-between mb-12">
+    <section className="pb-8">
+      <div className="flex items-center justify-between mb-10">
         <h2 className="text-3xl font-bold tracking-tight text-foreground">
           Featured <span className="text-primary/80">Works</span>
         </h2>
@@ -95,45 +129,58 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch"
+      >
         {projects.map((project) => (
-          <Link
-            key={project.id}
-            href={project.link}
-            className="group relative flex flex-col p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-dark/50 hover:border-primary transition-all duration-300 hover:scale-105 transition-transform"          
+          <motion.div 
+            key={project.id} 
+            variants={itemVariants}
+            className="flex"
           >
-
-            <div className="absolute top-8 right-8 text-gray-400 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">
-              <ArrowUpRight className="w-6 h-6" />
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 pt-4">
-                {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="px-3 py-1 text-xs font-mono font-medium rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 transition-all 
-                  duration-300 hover:scale-105 cursor-default"
-                  >
-                    {t}
-                  </span>
-                ))}
+            <Link
+              href={project.link}
+              className="group relative flex flex-col h-full w-full p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-dark/50 hover:border-primary transition-all duration-300 hover:scale-[1.02]"          
+            >
+              <div className="absolute top-8 right-8 text-gray-400 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">
+                <ArrowUpRight className="w-6 h-6" />
               </div>
-            </div>
-          </Link>
+
+              <div className="flex flex-col h-full">
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+
+                <div className="flex-grow" />
+
+                <div className="flex flex-wrap gap-2 pt-6">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1 text-xs font-mono font-medium rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 transition-all duration-300 hover:scale-105 cursor-default hover:scale-105 transition-transform shadow-lg shadow-blue-500/10"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
 
-    <section className="pb-20">
-      <div className="mb-12">
+    <section className="pb-4">
+      <div className="mb-10">
         <h2 className="text-3xl font-black text-foreground">
           Technical <span className="text-primary">Stack</span></h2>
         <p className="text-slate-600 dark:text-slate-400 mt-2">
@@ -141,6 +188,11 @@ export default function Home() {
         </p>
       </div>
 
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="space-y-4"
+      >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {skillCategories.map((category) => (
           <div key={category.title} className="space-y-4">
@@ -152,7 +204,7 @@ export default function Home() {
                 <span
                   key={skills}
                   className="px-3 py-1.5 text-sm font-medium rounded-md border border-gray-200 dark:border-gray-800 bg-white dark:bg-dark/30 text-slate-700 dark:text-slate-300 transition-all 
-                  duration-300 hover:border-primary hover:text-primary hover:scale-105 cursor-default"
+                  duration-300 hover:border-primary hover:text-primary hover:scale-105 transition-transform shadow-lg shadow-blue-500/10 cursor-default"
                 >
                   {skills}
                 </span>
@@ -161,10 +213,11 @@ export default function Home() {
           </div>
         ))}
       </div>
+      </motion.div>
     </section>
 
-    <section>
-        <div className="mb-12">
+    <section className="pb-10">
+        <div className="mb-14">
           <h2 className="text-3xl font-bold tracking-tight text-foreground">
             Experience
           </h2>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #fcfcfd;
   --foreground: #0f172a;
@@ -16,6 +20,9 @@ body {
   font-family: var(--font-inter), sans-serif;
   color: var(--foreground);
   background: var(--background);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
 }
 
 

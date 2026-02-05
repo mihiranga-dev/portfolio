@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import PageTransition from "../components/PageTransition";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -12,6 +13,10 @@ const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrai
 export const metadata: Metadata = {
   title: "Mihiranga Dissanayake",
   description: "Crafting robust, enterprise-grade applications with Java, Spring Boot, and React.",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -22,12 +27,23 @@ export default function RootLayout({
    return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrains.variable} ${outfit.variable} antialiased bg-background text-foreground transition-colors duration-300`}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+              }
+            `,
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="flex flex-col min-h-screen">
             <Navbar />
             
             <main className="flex-grow max-w-7xl w-full mx-auto px-6 py-10">
-              {children}
+              <PageTransition>
+                  {children}
+              </PageTransition>
             </main>
             
             <Footer />
