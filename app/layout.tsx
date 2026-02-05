@@ -30,6 +30,15 @@ export const metadata: Metadata = {
     siteName: "Mihiranga Dissanayake Portfolio",
     locale: "en_US",
     type: "website",
+
+    images: [
+      {
+        url: '/opengraph-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Mihiranga Dissanayake Portfolio',
+      },
+    ],
   },
 };
 
