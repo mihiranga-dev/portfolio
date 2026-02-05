@@ -7,6 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+export const runtime = 'edge';
+
 export default function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
   const project = projects.find((p) => p.id === resolvedParams.id);
