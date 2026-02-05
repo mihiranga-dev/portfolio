@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://mihiranga.dev'), 
 
   title: {
-    default: "Mihiranga Dissanayake | Full-Stack Software Engineer",
-    template: "%s | Mihiranga Dissanayake"
+    default: "Mihiranga | Full-Stack Software Engineer",
+    template: "%s | Mihiranga"
   },
   description: "Official portfolio of Mihiranga Dissanayake. Specializing in Java, Spring Boot, and React enterprise solutions.",
   keywords: ["Mihiranga Dissanayake", "Software Engineer Sri Lanka", "Java Developer", "React Developer"],
@@ -47,8 +47,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+    const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mihiranga Dissanayake",
+    "jobTitle": "Full-Stack Software Engineer",
+    "url": "https://mihiranga.dev",
+    "sameAs": [
+      "https://github.com/mihiranga-dev",
+      "https://linkedin.com/in/mihiranga-dev"
+    ],
+    "description": "Full-Stack Software Engineer specializing in enterprise Java (Spring Boot) and modern React architecture."
+  };
    return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${jetbrains.variable} ${outfit.variable} antialiased bg-background text-foreground transition-colors duration-300`}>
         <script
           dangerouslySetInnerHTML={{
