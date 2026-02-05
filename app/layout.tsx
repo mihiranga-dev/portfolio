@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -18,21 +19,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
+   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${jetbrains.variable} ${outfit.variable} antialiased bg-background text-foreground transition-colors duration-300`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <main className="max-w-7xl mx-auto px-6 py-10">
-            {children}
-          </main>
+      <body className={`${inter.variable} ${jetbrains.variable} ${outfit.variable} antialiased bg-background text-foreground transition-colors duration-300`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            
+            <main className="flex-grow max-w-7xl w-full mx-auto px-6 py-10">
+              {children}
+            </main>
+            
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

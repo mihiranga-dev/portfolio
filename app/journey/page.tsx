@@ -19,7 +19,7 @@ export default function JourneyPage() {
         {journey.map((item) => (
           <div 
             key={item.id} 
-            className="group relative flex flex-col md:flex-row gap-6 p-8 rounded-3xl border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark/40 hover:border-primary transition-all duration-500 shadow-sm"
+            className="group relative flex flex-col md:flex-row gap-6 p-8 rounded-3xl border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark/40 hover:border-primary hover:scale-105 transition-transform duration-500 shadow-sm"
           >
 
             <div className="flex flex-col items-center md:items-start gap-4 md:w-48 shrink-0">

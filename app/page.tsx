@@ -5,7 +5,7 @@ import Image from "next/image";
 import Typewriter from "typewriter-effect";
 import { projects } from "@/data/projects";
 import { skillCategories } from "@/data/skills";
-import { ArrowUpRight, Github, Linkedin, FileText } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, FileText, Mail, Send } from "lucide-react";
 import { journey } from "@/data/journey";
 import { GraduationCap, Code, Terminal, Calendar } from "lucide-react";
 
@@ -223,6 +223,67 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <section className="pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">
+              Get in <span className="text-primary">Touch</span>
+            </h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-md">
+              I’m currently looking for new opportunities and open to collaborating on 
+              enterprise-level Java or React projects. 
+            </p>
+            
+            <div className="space-y-4 pt-4">
+              <div className="flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <a href="mailto:kavinduthathsara89@gmail.com" className="text-sm font-medium hover:text-primary transition-colors">
+                  mihiranga.dev@gmail.com
+                </a>
+              </div>
+              
+              <div className="flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
+                  <Linkedin className="w-5 h-5" />
+                </div>
+                <a href="https://linkedin.com/in/mihiranga-dev/" target="_blank" className="text-sm font-medium hover:text-primary transition-colors">
+                  linkedin.com/in/mihiranga-dev
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-8 rounded-2xl border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark/40">
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input 
+                  type="text" 
+                  placeholder="Name" 
+                  className="w-full p-3 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" 
+                />
+                <input 
+                  type="email" 
+                  placeholder="Email" 
+                  className="w-full p-3 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" 
+                />
+              </div>
+              <textarea 
+                rows={4} 
+                placeholder="Your Message" 
+                className="w-full p-3 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm resize-none"
+              ></textarea>
+              <button className="w-full py-3 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-95">
+                Send Message <Send className="w-4 h-4" />
+              </button>
+            </form>
+          </div>
+
+        </div>
+</section>
 
     </div>
     </div>
