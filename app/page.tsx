@@ -69,19 +69,19 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-8 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-gray-800 bg-slate-50/50 dark:bg-dark/50 backdrop-blur-sm">
         <div className="text-center">
           <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">1+</span>
-          <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Years Experience</span>
+          <span className="text-[13px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Years Experience</span>
         </div>
         <div className="text-center">
           <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">20+</span>
-          <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">GitHub Repos</span>
+          <span className="text-[13px] uppercase tracking-[0.2em] text-slate-500 font-semibold">GitHub Repos</span>
         </div>
         <div className="text-center">
           <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">150+</span>
-          <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Contributions</span>
+          <span className="text-[13px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Contributions</span>
         </div>
         <div className="text-center">
           <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">5+</span>
-          <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Full-Stack Projects</span>
+          <span className="text-[13px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Full-Stack Projects</span>
         </div>
       </div>
 
@@ -100,7 +100,7 @@ export default function Home() {
           <Link
             key={project.id}
             href={project.link}
-            className="group relative flex flex-col p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-dark/50 hover:border-primary transition-all duration-300"          
+            className="group relative flex flex-col p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-dark/50 hover:border-primary transition-all duration-300 hover:scale-105 transition-transform"          
           >
 
             <div className="absolute top-8 right-8 text-gray-400 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">
