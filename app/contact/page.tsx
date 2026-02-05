@@ -1,10 +1,40 @@
 "use client";
 
-import { Mail, Linkedin, Github, Send, MessageSquare } from "lucide-react";
+import { useState } from "react";
+import { Mail, Linkedin, Github, Send, MessageSquare, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "7475854c-bc21-463f-b004-d558b89a4dc4"); 
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      setStatus("success");
+      (e.target as HTMLFormElement).reset();
+      setTimeout(() => setStatus("idle"), 5000);
+    } else {
+      setStatus("error");
+    }
+    setIsSubmitting(false);
+  }
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -41,14 +71,23 @@ export default function ContactPage() {
         </div>
 
         <div className="p-8 md:p-10 rounded-[2.5rem] border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark/40 shadow-xl shadow-primary/5">
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input type="text" placeholder="Name" className="w-full p-4 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" />
-              <input type="email" placeholder="Email" className="w-full p-4 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" />
+              <input name="name" type="text" required placeholder="Name" className="w-full p-4 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" />
+              <input name="email" type="email" required placeholder="Email" className="w-full p-4 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" />
             </div>
-            <textarea rows={10} placeholder="Your Message" className="w-full p-4 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm resize-none"></textarea>
-            <button className="w-full py-4 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/30 transition-all active:scale-95">
-              Send Message <Send className="w-4 h-4" />
+            <textarea name="message" required rows={10} placeholder="Your Message" className="w-full p-4 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm resize-none"></textarea>
+            
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 ${status === 'success' ? 'bg-emerald-500 text-white' : 'bg-primary text-white hover:shadow-lg hover:shadow-primary/30'}`}
+            >
+              {isSubmitting ? "Sending..." : status === 'success' ? (
+                <>Message Sent <CheckCircle2 className="w-4 h-4" /></>
+              ) : (
+                <>Send Message <Send className="w-4 h-4" /></>
+              )}
             </button>
           </form>
         </div>

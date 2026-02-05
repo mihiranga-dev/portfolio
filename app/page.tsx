@@ -9,6 +9,8 @@ import { ArrowUpRight, Github, Linkedin, FileText, Mail, Send } from "lucide-rea
 import { journey } from "@/data/journey";
 import { GraduationCap, Code, Terminal, Calendar } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import { useState } from "react";
+import { CheckCircle2 } from "lucide-react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -33,6 +35,35 @@ export default function Home() {
   const seExperience = journey.filter(item => 
     item.category === "education" || item.category === "independent"
   );
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "7475854c-bc21-463f-b004-d558b89a4dc4"); 
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      setStatus("success");
+      (e.target as HTMLFormElement).reset();
+      setTimeout(() => setStatus("idle"), 5000);
+    } else {
+      setStatus("error");
+    }
+    setIsSubmitting(false);
+  }
 
   return (
     <div className="space-y-32"> 
@@ -294,7 +325,7 @@ export default function Home() {
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                   <Mail className="w-5 h-5" />
                 </div>
-                <a href="mailto:kavinduthathsara89@gmail.com" className="text-sm font-medium hover:text-primary transition-colors">
+                <a href="mailto:mihiranga.dev@gmail.com" className="text-sm font-medium hover:text-primary transition-colors">
                   mihiranga.dev@gmail.com
                 </a>
               </div>
@@ -311,32 +342,49 @@ export default function Home() {
           </div>
 
           <div className="p-8 rounded-2xl border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark/40">
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input 
+                  name="name"
                   type="text" 
+                  required
                   placeholder="Name" 
                   className="w-full p-3 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" 
                 />
                 <input 
+                  name="email"
                   type="email" 
+                  required
                   placeholder="Email" 
                   className="w-full p-3 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" 
                 />
               </div>
               <textarea 
+                name="message"
                 rows={4} 
+                required
                 placeholder="Your Message" 
                 className="w-full p-3 rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-900/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm resize-none"
               ></textarea>
-              <button className="w-full py-3 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-95">
-                Send Message <Send className="w-4 h-4" />
+              
+              <button 
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 ${
+                  status === 'success' ? 'bg-emerald-500 text-white' : 'bg-primary text-white hover:shadow-lg hover:shadow-primary/20'
+                }`}
+              >
+                {isSubmitting ? "Sending..." : status === 'success' ? (
+                  <>Message Sent <CheckCircle2 className="w-4 h-4" /></>
+                ) : (
+                  <>Send Message <Send className="w-4 h-4" /></>
+                )}
               </button>
             </form>
           </div>
 
         </div>
-</section>
+      </section>
 
     </div>
     </div>
