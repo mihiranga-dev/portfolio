@@ -11,8 +11,12 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
-  title: "Mihiranga Dissanayake",
-  description: "Crafting robust, enterprise-grade applications with Java, Spring Boot, and React.",
+  title: {
+    default: "Mihiranga Dissanayake | Full-Stack Software Engineer",
+    template: "%s | Mihiranga Dissanayake"
+  },
+  description: "Official portfolio of Mihiranga Dissanayake. Specializing in Java, Spring Boot, and React enterprise solutions.",
+  keywords: ["Mihiranga Dissanayake", "Software Engineer Sri Lanka", "Java Developer", "React Developer"],
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
