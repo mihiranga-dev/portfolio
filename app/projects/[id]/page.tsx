@@ -2,8 +2,9 @@
 
 import { use } from "react";
 import { projects } from "@/data/projects";
-import { ArrowLeft, Github, ExternalLink, ShieldCheck, Zap, Code2 } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, ShieldCheck, Zap, Code2, Globe } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
@@ -46,6 +47,36 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
           </Link>
           )}
         </div>
+      </div>
+      
+      <div className="relative mb-20 hover:scale-105 transition-transform shadow-lg shadow-black/20">
+        {project.image && (
+            <div className="relative mb-20 animate-in fade-in zoom-in duration-1000">
+                <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-[2rem] opacity-50"></div>
+    
+            <div className="relative rounded-xl border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark shadow-2xl overflow-hidden">
+      
+                <div className="flex items-center gap-1.5 px-4 py-3 border-b border-slate-100 dark:border-gray-800 bg-slate-50/50 dark:bg-gray-900/50">
+                    <div className="w-3 h-3 rounded-full bg-red-400/50" />
+                    <div className="w-3 h-3 rounded-full bg-amber-400/50" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-400/50" />
+                    <div className="text-[10px] font-mono text-slate-400 ml-4 tracking-widest uppercase">
+                    {project.id}.app / preview
+                    </div>
+                </div>
+      
+        <div className="relative aspect-video w-full bg-slate-100 dark:bg-gray-900">
+            <Image 
+            src={project.image} 
+            alt={project.title}
+            fill
+            className="object-cover object-top"
+            priority
+            />
+        </div>
+        </div>
+    </div>
+)}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-slate-100 dark:border-gray-900 pt-16">

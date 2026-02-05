@@ -5,6 +5,7 @@ export interface Project {
     longDescription: string;
     features: string[];
     challenges: string;
+    image?: string;
     tech: string[];
     link: string;
     github?: string;
@@ -44,6 +45,7 @@ export const projects: Project[] = [
             "Zero-GPU requirement; runs entirely on free-tier cloud infrastructure."
         ],
         challenges: "The primary hurdle was migrating from local inference to a serverless cloud architecture, which exposed strict API payload limitations. I initially faced errors when injecting raw transcript strings directly into the Gemini API due to token constraints. I resolved this by re-architecting the pipeline to handle transcripts as file-based inputs (.SRT) rather than raw text. This not only bypassed the character limitations but also ensured that timestamp formatting remained intact during the translation process.",
+        image: "/projects/SubFlick_AI_dashboard.png",
         tech: ["Python", "FastAPI", "Next.js"],
         link: "projects/subflick",
         github: "https://github.com/mihiranga-dev/subflick-ai",
@@ -64,6 +66,7 @@ export const projects: Project[] = [
             "Automated Reporting: Generates summary reports for courses and student performance."
         ],
         challenges: "The main complexity lay in designing a normalized relational database schema to handle the many-to-many relationships between students, courses, and their respective modules. Early iterations suffered from data redundancy, particularly when tracking fee payments across different course durations. I resolved this by restructuring the MySQL database to Third Normal Form (3NF) and writing optimized JOIN queries to accurately calculate 'Paid/Unpaid' statuses dynamically without impacting application performance.",
+        image: "/projects/sms_dashboard.png",
         tech: ["Java", "MySQL"],
         link: "projects/sms",
         github: "https://github.com/mihiranga-dev/student-management-system",
@@ -83,6 +86,7 @@ export const projects: Project[] = [
             "Responsive Design: Mobile-first UI built with custom CSS, ensuring functionality across all device sizes."
         ],
         challenges: "The primary challenge was building a reactive Single Page Application without libraries like React or Vue. I had to manually manipulate the DOM to update task lists dynamically and write a custom utility to handle JWT token injection in headers for every 'fetch' request. Additionally, configuring CORS policies to allow secure, authenticated communication between the Netlify-hosted frontend and the Dockerized backend on a different domain required precise filter chain configuration in Spring Security.",
+        image: "/projects/TaskMaster_dashboard.png",
         tech: ["Spring Boot", "HTML", "CSS", "JavaScript"],
         link: "projects/tms",
         github: "https://github.com/mihiranga-dev/taskflow-frontend",
