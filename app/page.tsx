@@ -47,13 +47,13 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-              <Link href="/Resume.pdf" className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-bold hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all">
+              <Link href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-bold hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all">
                 <FileText className="w-5 h-5" />
                 Resume
               </Link>
               <div className="flex gap-3">
-                <Link href="https://linkedin.com/in/mihiranga-dev" className="p-3 rounded-full bg-blue-600 text-white hover:scale-110 transition-transform shadow-lg shadow-blue-500/20"><Linkedin className="w-5 h-5"/></Link>
-                <Link href="https://github.com/mihiranga-dev" className="p-3 rounded-full bg-slate-800 dark:bg-slate-700 text-white hover:scale-110 transition-transform shadow-lg shadow-black/20"><Github className="w-5 h-5"/></Link>
+                <Link href="https://linkedin.com/in/mihiranga-dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-blue-600 text-white hover:scale-110 transition-transform shadow-lg shadow-blue-500/20"><Linkedin className="w-5 h-5"/></Link>
+                <Link href="https://github.com/mihiranga-dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-slate-800 dark:bg-slate-700 text-white hover:scale-110 transition-transform shadow-lg shadow-black/20"><Github className="w-5 h-5"/></Link>
               </div>
             </div>
           </div>
@@ -68,19 +68,19 @@ export default function Home() {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-8 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-gray-800 bg-slate-50/50 dark:bg-dark/50 backdrop-blur-sm">
         <div className="text-center">
-          <span className="block text-4xl font-bold text-foreground">1+</span>
+          <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">1+</span>
           <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Years Experience</span>
         </div>
         <div className="text-center">
-          <span className="block text-4xl font-bold text-foreground">20+</span>
+          <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">20+</span>
           <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">GitHub Repos</span>
         </div>
         <div className="text-center">
-          <span className="block text-4xl font-bold text-foreground">150+</span>
+          <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">150+</span>
           <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Contributions</span>
         </div>
         <div className="text-center">
-          <span className="block text-4xl font-bold text-foreground">5+</span>
+          <span className="block text-4xl font-bold text-foreground hover:scale-110 cursor-default hover:text-primary transition-colors">5+</span>
           <span className="text-[15px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Full-Stack Projects</span>
         </div>
       </div>
