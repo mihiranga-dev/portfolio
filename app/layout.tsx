@@ -11,6 +11,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mihiranga.dev'), 
+
   title: {
     default: "Mihiranga Dissanayake | Full-Stack Software Engineer",
     template: "%s | Mihiranga Dissanayake"
@@ -20,6 +22,14 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
+  },
+  openGraph: {
+    title: "Mihiranga Dissanayake | Portfolio",
+    description: "Full-Stack Software Engineer specializing in Java and React.",
+    url: "https://mihiranga.dev",
+    siteName: "Mihiranga Dissanayake Portfolio",
+    locale: "en_US",
+    type: "website",
   },
 };
 
