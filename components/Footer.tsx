@@ -16,14 +16,15 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-center items-center gap-6">
-          <Link 
+          <a 
             href="https://paypal.me/mihirangadev"
-            target="_blank"
-            className="flex items-center gap-2 px-4 py-2 rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-600 dark:text-amber-500 text-xs font-bold uppercase tracking-widest hover:text-primary transition-all hover:scale-105 duration-300"
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-600 dark:text-amber-500 text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:scale-105"
           >
             <Coffee className="w-4 h-4" />
             Support my work
-          </Link>
+          </a>
 
           <div className="flex gap-6 items-center border-l border-slate-200 dark:border-gray-800 pl-6">
             <Link 
