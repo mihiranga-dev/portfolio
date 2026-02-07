@@ -155,9 +155,14 @@ export default function Home() {
         <h2 className="text-3xl font-bold tracking-tight text-foreground">
           Featured <span className="text-primary/80">Works</span>
         </h2>
-        <a href="/projects" className="text-sm md:text-base text-primary hover:scale-110 transition-transform font-medium">
+        <Link 
+          href="/projects"
+          onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+              }}
+          className="text-sm md:text-base text-primary hover:scale-110 transition-transform font-medium">
             View all projects
-        </a>
+        </Link>
       </div>
 
       <motion.div 
@@ -173,8 +178,11 @@ export default function Home() {
             variants={itemVariants}
             className="flex"
           >
-            <a
+            <Link
               href={project.link}
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+              }}
               className="group relative flex flex-col h-full w-full p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-dark/50 hover:border-primary transition-all duration-300 hover:scale-[1.02]"          
             >
               <div className="absolute top-8 right-8 text-gray-400 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">
@@ -204,7 +212,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </a>
+            </Link>
           </motion.div>
         ))}
       </motion.div>

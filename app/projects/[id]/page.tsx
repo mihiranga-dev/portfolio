@@ -17,10 +17,15 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
 
   return (
     <div className="max-w-4xl mx-auto py-6 md:py-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <a href="/" className="group flex items-center gap-2 text-slate-500 hover:text-primary transition-colors mb-12">
+      <Link 
+        href="/"
+        onClick={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }}
+        className="group flex items-center gap-2 text-slate-500 hover:text-primary transition-colors mb-12">
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
         Back to Home
-      </a>
+      </Link>
 
       <div className="space-y-6 mb-16">
         <div className="flex flex-wrap gap-2">
