@@ -103,10 +103,10 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-              <Link href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-bold hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all">
+              <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-bold hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all">
                 <FileText className="w-5 h-5" />
                 Resume
-              </Link>
+              </a>
               <div className="flex gap-3">
                 <Link href="https://linkedin.com/in/mihiranga-dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-blue-600 text-white hover:scale-110 transition-transform shadow-lg shadow-blue-500/20"><Linkedin className="w-5 h-5"/></Link>
                 <Link href="https://github.com/mihiranga-dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-slate-800 dark:bg-slate-700 text-white hover:scale-110 transition-transform shadow-lg shadow-black/20"><Github className="w-5 h-5"/></Link>
