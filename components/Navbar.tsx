@@ -26,7 +26,7 @@ export default function Navbar() {
     return (
         <nav className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-dark/80 backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-                <Link 
+                <a 
                     href="/" 
                     onClick={() => {
                         setIsOpen(false);
@@ -34,11 +34,11 @@ export default function Navbar() {
                     }} 
                     className="font-outfit text-xl font-bold tracking-tight hover:text-primary transition-colors">
                     mihiranga<span className="text-primary">.dev</span>
-                </Link>
+                </a>
 
                 <div className="hidden md:flex gap-8 items-center">
                     {navLinks.map((link) => (
-                        <Link
+                        <a
                             key={link.name}
                             href={link.href}
                             onClick={() => {
@@ -48,7 +48,7 @@ export default function Navbar() {
                             className="text-sm font-medium hover:text-primary transition-colors font-sans"
                         >
                             {link.name}
-                        </Link>
+                        </a>
                     ))}
 
                         <button
@@ -82,7 +82,7 @@ export default function Navbar() {
                 <div className="md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-dark absolute w-full">
                     <div className="flex flex-col p-4 space-y-4">
                         {navLinks.map((link) => (
-                            <Link
+                            <a
                             key={link.name}
                             href={link.href}
                             onClick={() => {
@@ -92,7 +92,7 @@ export default function Navbar() {
                             className="text-sm font-medium hover:text-primary transition-colors"
                             >
                                 {link.name}
-                            </Link>
+                            </a>
                         ))}
                     </div>
                 </div>

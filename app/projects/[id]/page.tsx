@@ -17,10 +17,10 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
 
   return (
     <div className="max-w-4xl mx-auto py-6 md:py-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <Link href="/" className="group flex items-center gap-2 text-slate-500 hover:text-primary transition-colors mb-12">
+      <a href="/" className="group flex items-center gap-2 text-slate-500 hover:text-primary transition-colors mb-12">
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
         Back to Home
-      </Link>
+      </a>
 
       <div className="space-y-6 mb-16">
         <div className="flex flex-wrap gap-2">
@@ -39,14 +39,14 @@ export default function ProjectDetail({ params }: { params: Promise<{ id: string
         
         <div className="flex gap-4 pt-4">
           {project.github && (
-            <Link href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-xl font-bold hover:opacity-90 transition-opacity ">
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-xl font-bold hover:opacity-90 transition-opacity ">
               <Github className="w-5 h-5" /> Code Repo
-            </Link>
+            </a>
           )}
           {project.liveDemo && (
-          <Link href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 border border-slate-200 dark:border-gray-800 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-gray-900 transition-colors">
+          <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 border border-slate-200 dark:border-gray-800 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-gray-900 transition-colors">
             <ExternalLink className="w-5 h-5" /> Live Demo
-          </Link>
+          </a>
           )}
         </div>
       </div>

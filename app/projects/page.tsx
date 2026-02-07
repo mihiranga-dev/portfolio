@@ -39,7 +39,7 @@ export default function ProjectsPage() {
       >
         {projects.map((project) => (
           <motion.div key={project.id} variants={itemVariants} className="flex h-full">
-            <Link
+            <a
               href={project.link}
               onClick={() => {
                         window.scrollTo(0, 0);
@@ -68,7 +68,7 @@ export default function ProjectsPage() {
                   ))}
                 </div>
               </div>
-            </Link>
+            </a>
           </motion.div>
         ))}
       </motion.div>

@@ -108,8 +108,8 @@ export default function Home() {
                 Resume
               </a>
               <div className="flex gap-3">
-                <Link href="https://linkedin.com/in/mihiranga-dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-blue-600 text-white hover:scale-110 transition-transform shadow-lg shadow-blue-500/20"><Linkedin className="w-5 h-5"/></Link>
-                <Link href="https://github.com/mihiranga-dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-slate-800 dark:bg-slate-700 text-white hover:scale-110 transition-transform shadow-lg shadow-black/20"><Github className="w-5 h-5"/></Link>
+                <a href="https://linkedin.com/in/mihiranga-dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-blue-600 text-white hover:scale-110 transition-transform shadow-lg shadow-blue-500/20"><Linkedin className="w-5 h-5"/></a>
+                <a href="https://github.com/mihiranga-dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-slate-800 dark:bg-slate-700 text-white hover:scale-110 transition-transform shadow-lg shadow-black/20"><Github className="w-5 h-5"/></a>
               </div>
             </div>
           </div>
@@ -155,9 +155,9 @@ export default function Home() {
         <h2 className="text-3xl font-bold tracking-tight text-foreground">
           Featured <span className="text-primary/80">Works</span>
         </h2>
-        <Link href="/projects" className="text-sm md:text-base text-primary hover:scale-110 transition-transform font-medium">
+        <a href="/projects" className="text-sm md:text-base text-primary hover:scale-110 transition-transform font-medium">
             View all projects
-        </Link>
+        </a>
       </div>
 
       <motion.div 
@@ -173,7 +173,7 @@ export default function Home() {
             variants={itemVariants}
             className="flex"
           >
-            <Link
+            <a
               href={project.link}
               className="group relative flex flex-col h-full w-full p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-dark/50 hover:border-primary transition-all duration-300 hover:scale-[1.02]"          
             >
@@ -204,7 +204,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </Link>
+            </a>
           </motion.div>
         ))}
       </motion.div>

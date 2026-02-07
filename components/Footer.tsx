@@ -27,20 +27,20 @@ export default function Footer() {
           </a>
 
           <div className="flex gap-6 items-center border-l border-slate-200 dark:border-gray-800 pl-6">
-            <Link 
+            <a 
               href="https://github.com/mihiranga-dev" 
               target="_blank" 
               className="text-slate-400 hover:text-primary transition-all hover:scale-110"
             >
               <Github className="w-5 h-5" />
-            </Link>
-            <Link 
+            </a>
+            <a 
               href="https://linkedin.com/in/mihiranga-dev" 
               target="_blank" 
               className="text-slate-400 hover:text-primary transition-all hover:scale-110"
             >
               <Linkedin className="w-5 h-5" />
-            </Link>
+            </a>
             <a 
               href="mailto:mihiranga.dev@gmail.com" 
               className="text-slate-400 hover:text-primary transition-all hover:scale-110"
