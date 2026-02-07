@@ -157,9 +157,6 @@ export default function Home() {
         </h2>
         <Link 
           href="/projects"
-          onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-              }}
           className="text-sm md:text-base text-primary hover:scale-110 transition-transform font-medium">
             View all projects
         </Link>
@@ -180,9 +177,6 @@ export default function Home() {
           >
             <Link
               href={project.link}
-              onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-              }}
               className="group relative flex flex-col h-full w-full p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-dark/50 hover:border-primary transition-all duration-300 hover:scale-[1.02]"          
             >
               <div className="absolute top-8 right-8 text-gray-400 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">

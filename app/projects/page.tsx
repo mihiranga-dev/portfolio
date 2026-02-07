@@ -41,9 +41,6 @@ export default function ProjectsPage() {
           <motion.div key={project.id} variants={itemVariants} className="flex h-full">
             <Link
               href={project.link}
-              onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-              }}
               className="group relative flex flex-col p-8 rounded-3xl border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark/40 hover:border-primary transition-all duration-300 w-full hover:scale-[1.02]"
             >
               <div className="absolute top-8 right-8 text-slate-400 group-hover:text-primary transition-all">

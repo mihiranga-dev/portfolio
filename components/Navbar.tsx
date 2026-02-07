@@ -46,7 +46,6 @@ export default function Navbar() {
                             href={link.href}
                             onClick={() => {
                             setIsOpen(false);
-                            window.scrollTo(0, 0);
                             }}
                             className="text-sm font-medium hover:text-primary transition-colors font-sans"
                         >
