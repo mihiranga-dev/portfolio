@@ -34,7 +34,6 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                 <a 
                     href="/" 
-                    onClick={handleNavClick}
                     className="font-outfit text-xl font-bold tracking-tight hover:text-primary transition-colors">
                     mihiranga<span className="text-primary">.dev</span>
                 </a>
@@ -46,6 +45,7 @@ export default function Navbar() {
                             href={link.href}
                             onClick={() => {
                             setIsOpen(false);
+                            window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
                             }}
                             className="text-sm font-medium hover:text-primary transition-colors font-sans"
                         >
