@@ -1,6 +1,18 @@
-export interface TechnicalChallenge {
+export interface SubChallenge {
   title: string;
+  description: string;
   tasks: string[];
+  codeSnippet?: string;
+  solution?: {
+    explanation: string;
+    fixedCode?: string;
+  };
+}
+
+export interface TechnicalChallenge {
+  episode: string;
+  intro: string;
+  challenges: SubChallenge[];
 }
 
 export interface Lesson {
@@ -34,10 +46,19 @@ export const courses: Course[] = [
         videoUrl: "https://youtu.be/URgcwQ9hjIg",
         isPublished: true,
         challenge: {
-          title: "Architecture Analysis",
-          tasks: [
-            "Explain the analogy of HTML vs CSS vs JS in your own words.",
-            "Visit a website and use 'View Source' to identify where the HTML ends and CSS begins.",
+          episode: "01",
+          intro:
+            "Understand the high-level architecture of the web before writing code.",
+          challenges: [
+            {
+              title: "Architecture Analysis",
+              description:
+                "Let's test your understanding of how the web works.",
+              tasks: [
+                "Explain the analogy of HTML vs CSS vs JS in your own words.",
+                "Visit a website and use 'View Source' to identify where the HTML ends and CSS begins.",
+              ],
+            },
           ],
         },
       },
@@ -47,10 +68,18 @@ export const courses: Course[] = [
         videoUrl: "https://youtu.be/FzBYDCb7-WA",
         isPublished: true,
         challenge: {
-          title: "Environment Setup",
-          tasks: [
-            "Install VS Code and Google Chrome.",
-            "Verify your installation by launching VS Code from the terminal/command prompt. { Check version: code --version } | { Launch VS Code: code }",
+          episode: "02",
+          intro: "Prepare your professional development environment.",
+          challenges: [
+            {
+              title: "Environment Setup",
+              description:
+                "Installing the core tools used by software engineers globally.",
+              tasks: [
+                "Install VS Code and Google Chrome.",
+                "Verify your installation by launching VS Code from the terminal/command prompt. { Check version: code --version } | { Launch VS Code: code }",
+              ],
+            },
           ],
         },
       },
@@ -60,10 +89,17 @@ export const courses: Course[] = [
         videoUrl: "https://youtu.be/IBS5YryHZJ0",
         isPublished: true,
         challenge: {
-          title: "Efficiency Optimization",
-          tasks: [
-            "Install the 'Prettier' and 'Live Server' extensions.",
-            "Configure 'Auto Save' to 'onFocusChange' in VS Code settings.",
+          episode: "03",
+          intro: "Optimize your workflow for speed and accuracy.",
+          challenges: [
+            {
+              title: "Efficiency Optimization",
+              description: "Configure your editor to work for you.",
+              tasks: [
+                "Install the 'Prettier' and 'Live Server' extensions.",
+                "Configure 'Auto Save' to 'onFocusChange' in VS Code settings.",
+              ],
+            },
           ],
         },
       },
@@ -73,19 +109,70 @@ export const courses: Course[] = [
         videoUrl: "https://youtu.be/YtX1nIscmZM",
         isPublished: true,
         challenge: {
-          title: "The Hello World Build",
-          tasks: [
-            "Create a folder named 'HTML-Course' and initialize an index.html file.",
-            "Launch the file using Live Server and confirm it updates in real-time.",
+          episode: "04",
+          intro: "Create your very first live web document.",
+          challenges: [
+            {
+              title: "The Hello World Build",
+              description:
+                "Starting your project folder and launching the server.",
+              tasks: [
+                "Create a folder named 'HTML-Course' and initialize an index.html file.",
+                "Launch the file using Live Server and confirm it updates in real-time.",
+              ],
+            },
           ],
         },
       },
       {
         id: "v5",
         title: "05. The Boilerplate (Skeleton)",
-        videoUrl: "",
-        isPublished: false,
-        challenge: { title: "Locked", tasks: [] },
+        videoUrl: "https://youtu.be/4JAvkZJNLlc",
+        noteUrl: "/lessonNotes/html-video-005-note.pdf",
+        isPublished: true,
+        challenge: {
+          episode: "05",
+          intro:
+            "Put your new knowledge to the test! Complete these three challenges before moving on to the next video.",
+          challenges: [
+            {
+              title: "Challenge 1: The Muscle Memory Test",
+              description:
+                "Professional developers use shortcuts, but they also know the code by heart.",
+              tasks: [
+                "Create a new file named manual.html.",
+                "Type out the entire basic HTML boilerplate manually without using shortcuts.",
+                "Inside the <body>, write an <h1> tag: 'I typed this from scratch!'",
+              ],
+            },
+            {
+              title: "Challenge 2: The Localized Webpage",
+              description:
+                "Learn how attributes and meta tags handle different languages.",
+              tasks: [
+                "Change the lang attribute from 'en' to 'si'.",
+                "Change the <title> to 'මගේ වෙබ් අඩවිය'",
+                "Inside the <body>, add an <h1> tag that says 'ආයුබෝවන්'.",
+              ],
+            },
+            {
+              title: "Challenge 3: The Debugger",
+              description:
+                "Spot the 3 major mistakes a junior developer made in the code below.",
+              tasks: [
+                "Identify the missing DOCTYPE declaration.",
+                "Fix the nesting error (Body is inside Head).",
+                "Add the missing Viewport meta tag for responsiveness.",
+              ],
+              codeSnippet: `<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>My Broken Website</title>\n    <body>\n        <h1>Welcome to my page!</h1>\n    </body>\n</head>\n</html>`,
+              solution: {
+                explanation:
+                  "1. Missing <!DOCTYPE html>.\n2. <body> cannot be inside <head>.\n3. Missing viewport <meta>.",
+                fixedCode: `<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>My Fixed Website</title>\n</head>\n<body>\n    <h1>Welcome to my page!</h1>\n</body>\n</html>`,
+              },
+            },
+          ],
+        },
       },
     ],
   },

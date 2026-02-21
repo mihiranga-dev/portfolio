@@ -76,24 +76,88 @@ export default function CourseDetail({
               exit={{ opacity: 0, y: -10 }}
               className="p-8 rounded-[2.5rem] border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark/40 space-y-6"
             >
-              <div className="flex items-center gap-3 text-primary">
-                <Terminal className="w-6 h-6" />
-                <h2 className="text-xl font-bold uppercase tracking-widest">
-                  {currentLesson.challenge.title}
-                </h2>
-              </div>
+              {/* 3. UPDATED TECHNICAL CHALLENGE SECTION */}
+              <section className="space-y-8">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 text-primary">
+                    <Terminal className="w-6 h-6" />
+                    <h2 className="text-xl font-bold uppercase tracking-[0.2em]">
+                      Practice Challenges: Episode{" "}
+                      {currentLesson.challenge.episode}
+                    </h2>
+                  </div>
+                  <p className="text-slate-500 dark:text-slate-400 italic text-sm">
+                    {currentLesson.challenge.intro}
+                  </p>
+                </div>
 
-              <ul className="space-y-4">
-                {currentLesson.challenge.tasks.map((task, i) => (
-                  <li
-                    key={i}
-                    className="flex gap-4 text-slate-600 dark:text-slate-300"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-[15px] leading-relaxed">{task}</span>
-                  </li>
-                ))}
-              </ul>
+                <div className="space-y-12">
+                  {currentLesson.challenge.challenges.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-8 rounded-[2rem] border border-slate-200 dark:border-gray-800 bg-white dark:bg-dark/40 space-y-6"
+                    >
+                      <div className="space-y-2">
+                        <h3 className="text-lg font-bold text-foreground">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-slate-500">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {item.tasks.map((task, i) => (
+                          <li
+                            key={i}
+                            className="flex gap-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed"
+                          >
+                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                            {task}
+                          </li>
+                        ))}
+                      </ul>
+
+                      {item.codeSnippet && (
+                        <div className="relative group">
+                          <div className="absolute top-4 right-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                            Broken Code
+                          </div>
+                          <pre className="p-6 rounded-2xl bg-slate-900 text-slate-300 font-mono text-xs overflow-x-auto border border-white/5">
+                            <code>{item.codeSnippet}</code>
+                          </pre>
+                        </div>
+                      )}
+
+                      {item.solution && (
+                        <details className="group border-t border-slate-100 dark:border-gray-800 pt-6">
+                          <summary className="list-none cursor-pointer flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary hover:opacity-80 transition-opacity">
+                            <span className="group-open:rotate-180 transition-transform">
+                              ▼
+                            </span>
+                            View Solution & Fixed Code
+                          </summary>
+                          <div className="mt-6 space-y-4 animate-in fade-in slide-in-from-top-2">
+                            <p className="text-sm text-slate-500 bg-primary/5 p-4 rounded-xl border border-primary/10">
+                              <span className="font-bold text-primary block mb-1">
+                                Explanation:
+                              </span>
+                              <span className="whitespace-pre-wrap">
+                                {item.solution.explanation}
+                              </span>
+                            </p>
+                            {item.solution.fixedCode && (
+                              <pre className="p-6 rounded-2xl bg-emerald-950/20 text-emerald-400 font-mono text-xs overflow-x-auto border border-emerald-500/20 ">
+                                <code>{item.solution.fixedCode}</code>
+                              </pre>
+                            )}
+                          </div>
+                        </details>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
             </motion.section>
           </AnimatePresence>
         </div>
