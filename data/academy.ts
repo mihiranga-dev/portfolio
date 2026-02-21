@@ -42,7 +42,7 @@ export const courses: Course[] = [
     lessons: [
       {
         id: "v1",
-        title: "01. What is HTML? (Theory)",
+        title: "What is HTML? (Theory)",
         videoUrl: "https://youtu.be/URgcwQ9hjIg",
         isPublished: true,
         challenge: {
@@ -64,7 +64,7 @@ export const courses: Course[] = [
       },
       {
         id: "v2",
-        title: "02. Best Tools for 2026",
+        title: "Best Tools for 2026",
         videoUrl: "https://youtu.be/FzBYDCb7-WA",
         isPublished: true,
         challenge: {
@@ -85,7 +85,7 @@ export const courses: Course[] = [
       },
       {
         id: "v3",
-        title: "03. The Pro Environment",
+        title: "The Pro Environment",
         videoUrl: "https://youtu.be/IBS5YryHZJ0",
         isPublished: true,
         challenge: {
@@ -105,7 +105,7 @@ export const courses: Course[] = [
       },
       {
         id: "v4",
-        title: "04. Your First HTML File",
+        title: "Your First HTML File",
         videoUrl: "https://youtu.be/YtX1nIscmZM",
         isPublished: true,
         challenge: {
@@ -126,7 +126,7 @@ export const courses: Course[] = [
       },
       {
         id: "v5",
-        title: "05. The Boilerplate (Skeleton)",
+        title: "The Boilerplate (Skeleton)",
         videoUrl: "https://youtu.be/4JAvkZJNLlc",
         noteUrl: "/lessonNotes/html-video-005-note.pdf",
         isPublished: true,
@@ -170,6 +170,57 @@ export const courses: Course[] = [
                   "1. Missing <!DOCTYPE html>.\n2. <body> cannot be inside <head>.\n3. Missing viewport <meta>.",
                 fixedCode: `<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>My Fixed Website</title>\n</head>\n<body>\n    <h1>Welcome to my page!</h1>\n</body>\n</html>`,
               },
+            },
+          ],
+        },
+      },
+      {
+        id: "v6",
+        title: "Headings & Paragraphs",
+        videoUrl: "https://youtu.be/tHE-QL_WMMI",
+        noteUrl: "/lessonNotes/html-video-006-note.pdf",
+        isPublished: true,
+        challenge: {
+          episode: "06",
+          intro:
+            "Put your new knowledge to the test! Complete these three challenges before moving on to the next video.",
+          challenges: [
+            {
+              title: "Challenge 1: The Article Structure",
+              description:
+                "Let's build a mini-article structure following professional standards.",
+              tasks: [
+                "Create a new file named article.html and generate the boilerplate.",
+                "Add a main heading (<h1>): 'The Future of Web Development'.",
+                "Add a sub-heading (<h2>): 'Why HTML is Still Important'.",
+                "Add a paragraph (<p>) containing exactly 30 words of dummy text (Tip: type lorem30 and press Tab).",
+              ],
+            },
+            {
+              title: "Challenge 2: The SEO Fixer",
+              description:
+                "A junior developer broke the Golden Rule of SEO! Rewrite the code below so it is fully optimized for search engines.",
+              tasks: [
+                "Identify why having multiple <h1> tags is bad for SEO.",
+                "Fix the hierarchy so only one <h1> remains.",
+                "Ensure sub-topics use secondary heading levels.",
+              ],
+              codeSnippet: `<body>\n    <h1>My Tech Blog</h1>\n    <p>Welcome to my daily blog about coding.</p>\n    \n    <h1>Today's Topic: VS Code Shortcuts</h1>\n    <p>Shortcuts save a lot of time.</p>\n\n    <h1>Conclusion</h1>\n    <p>Always learn your keyboard shortcuts.</p>\n</body>`,
+              solution: {
+                explanation:
+                  "The page should only have one <h1> (the main title of the document). All other main sub-sections should be <h2>, and their sub-sections <h3>.",
+                fixedCode: `<body>\n    <h1>My Tech Blog</h1>\n    <p>Welcome to my daily blog about coding.</p>\n    \n    <h2>Today's Topic: VS Code Shortcuts</h2>\n    <p>Shortcuts save a lot of time.</p>\n\n    <h2>Conclusion</h2>\n    <p>Always learn your keyboard shortcuts.</p>\n</body>`,
+              },
+            },
+            {
+              title: "Challenge 3: Word Wrap Mastery",
+              description:
+                "Practice handling massive blocks of text within your IDE.",
+              tasks: [
+                "Inside your <body>, type lorem500 and press Tab to generate a massive block.",
+                "Practice using Alt + Z (or Option + Z) to toggle 'Word Wrap' on and off.",
+                "Confirm that you can read the text without horizontal scrolling.",
+              ],
             },
           ],
         },
