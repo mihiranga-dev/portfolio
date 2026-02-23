@@ -128,7 +128,7 @@ export const courses: Course[] = [
         id: "v5",
         title: "The Boilerplate (Skeleton)",
         videoUrl: "https://youtu.be/4JAvkZJNLlc",
-        noteUrl: "/lessonNotes/html-video-005-note.pdf",
+        noteUrl: "/lessonNotes/html-notes/html-video-005-note.pdf",
         isPublished: true,
         challenge: {
           episode: "05",
@@ -178,7 +178,7 @@ export const courses: Course[] = [
         id: "v6",
         title: "Headings & Paragraphs",
         videoUrl: "https://youtu.be/tHE-QL_WMMI",
-        noteUrl: "/lessonNotes/html-video-006-note.pdf",
+        noteUrl: "/lessonNotes/html-notes/html-video-006-note.pdf",
         isPublished: true,
         challenge: {
           episode: "06",
@@ -227,4 +227,59 @@ export const courses: Course[] = [
       },
     ],
   },
+
+
+
+// Java Course
+  {
+  id: "java-mastery",
+  title: "Enterprise Java Mastery 2026",
+  description: "A deep dive into the world's most robust language. From foundations to enterprise-grade architecture.",
+  thumbnail: "/academy/java-thum.jpg",
+  lessons: [
+    {
+      id: "java-v1",
+      title: "01. Introduction & History of Java",
+      videoUrl: "https://youtu.be/97n5s45eYnc",
+      noteUrl: "/lessonNotes/java-notes/java-video-001-note.pdf",
+      isPublished: true,
+      challenge: {
+        episode: "01",
+        intro: "Test your foundational knowledge before moving on to the next video!",
+        challenges: [
+          {
+            title: "Challenge 1: The Acronym Master",
+            description: "Industry standards rely on core terminology.",
+            tasks: [
+              "Define exactly what the acronym 'WORA' stands for.",
+              "Explain why this concept changed the software industry in the 90s."
+            ]
+          },
+          {
+            title: "Challenge 2: The History Quiz",
+            description: "Identify if the following statements are True or False:",
+            tasks: [
+              "Java was originally named 'Pine' after a tree outside the office.",
+              "Java was created by James Gosling and the 'Green Team'.",
+              "Today, Java is owned and maintained by Microsoft."
+            ]
+          },
+          {
+            title: "Challenge 3: Spot the Bug (The Skeleton)",
+            description: "A junior developer wrote their first Java program, but it won't compile. Find and fix the 2 major errors.",
+            tasks: [
+              "Check for case-sensitivity in keywords.",
+              "Verify the method signature for the entry point."
+            ],
+            codeSnippet: `Public class Main {\n    public void main(String[] args) {\n        System.out.println("I am learning Java!");\n    }\n}`,
+            solution: {
+              explanation: "1. Java is case-sensitive: 'Public' must be lowercase 'public'.\n2. The main method must be 'static' so the JVM can run it without creating an instance.",
+              fixedCode: `public class Main {\n    public static void main(String[] args) {\n        System.out.println("I am learning Java!");\n    }\n}`
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
 ];
