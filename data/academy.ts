@@ -225,61 +225,161 @@ export const courses: Course[] = [
           ],
         },
       },
+      {
+        id: "v7",
+        title: "Text Formatting",
+        videoUrl: "https://youtu.be/ZyQImeMB6_A",
+        noteUrl: "/lessonNotes/html-notes/html-video-007-note.pdf",
+        isPublished: true,
+        challenge: {
+          episode: "07",
+          intro:
+            "Put your new formatting skills to the test! Complete these three challenges before moving on.",
+          challenges: [
+            {
+              title: "Challenge 1: The Formatted Sentence",
+              description: "Practice using visual formatting tags correctly.",
+              tasks: [
+                "Write a paragraph: 'HTML is the standard markup language for documents designed to be displayed in a web browser.'",
+                "Make 'HTML' bold (<b>).",
+                "Make 'standard markup language' italic (<i>).",
+                "Make 'web browser' underlined (<u>).",
+              ],
+            },
+            {
+              title: "Challenge 2: The SEO Fixer",
+              description:
+                "Semantic vs Visual formatting. Help a client optimize their keywords for Google.",
+              tasks: [
+                "Identify the difference between <b> and <strong>.",
+                "Rewrite the marketing text using semantic tags.",
+              ],
+              codeSnippet: `<p>Buy our new <b>SuperFast Laptop 5000</b> today!\nIt is the <b>best gaming laptop</b>\nof the year.</p>`,
+              solution: {
+                explanation:
+                  "Search engines prioritize <strong> over <b>. Use <strong> for important keywords.",
+                fixedCode: `<p>Buy our new <strong>SuperFast Laptop 5000</strong> today!\nIt is the <strong>best gaming laptop</strong>\nof the year.</p>`,
+              },
+            },
+            {
+              title: "Challenge 3: The Poem Structure",
+              description: "Mastering line breaks and horizontal dividers.",
+              tasks: [
+                "Write a 4-line poem inside a single <p> tag.",
+                "Use <br> tags to force each line to drop down.",
+                "Use an <hr> tag below the poem to create a visual break.",
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "v8",
+        title: "Comments in HTML",
+        videoUrl: "https://youtu.be/4YhpH0w3Z6k",
+        noteUrl: "/lessonNotes/html-notes/html-video-008-note.pdf",
+        isPublished: true,
+        challenge: {
+          episode: "08",
+          intro:
+            "Put your new developer habits to the test! Complete these three challenges before moving on.",
+          challenges: [
+            {
+              title: "Challenge 1: The Documenter",
+              description:
+                "Practice the industry standard of documenting your code files.",
+              tasks: [
+                "Create about.html with a main <h1> and a goals <p>.",
+                "Add a comment at the very top: 'Author: [Name] - Created on [Date]'.",
+                "Verify that the comment is invisible in the browser but visible in 'View Source'.",
+              ],
+            },
+            {
+              title: "Challenge 2: The Organizer",
+              description:
+                "Using 'Visual Dividers' to make long code files readable.",
+              tasks: [
+                "Create a 'Skills Section' starting with an <h2>.",
+                "Wrap the section in divider comments using equal signs (e.g., <!-- === Skills === -->).",
+              ],
+            },
+            {
+              title: "Challenge 3: The Debugger",
+              description:
+                "Use shortcuts to 'hide' broken code without deleting it.",
+              tasks: [
+                "Identify the line causing the error message.",
+                "Use the Ctrl + / (or Cmd + /) shortcut to comment out the error.",
+                "Confirm the error message is no longer visible to the user.",
+              ],
+              codeSnippet: `<body>\n    <h1>My Website</h1>\n    <p>ERROR: Database connection failed. Cannot load user profile.</p>\n    <p>Please contact support.</p>\n</body>`,
+              solution: {
+                explanation:
+                  "Highlight the error paragraph and press the comment shortcut. This wraps the line in <!-- and -->.",
+                fixedCode: `<body>\n    <h1>My Website</h1>\n    <!-- <p>ERROR: Database connection failed.</p> -->\n    <p>Please contact support.</p>\n</body>`,
+              },
+            },
+          ],
+        },
+      },
     ],
   },
 
-
-
-// Java Course
+  // Java Course
   {
-  id: "java-mastery",
-  title: "Enterprise Java Mastery 2026",
-  description: "A deep dive into the world's most robust language. From foundations to enterprise-grade architecture.",
-  thumbnail: "/academy/java-thum.jpg",
-  lessons: [
-    {
-      id: "java-v1",
-      title: "01. Introduction & History of Java",
-      videoUrl: "https://youtu.be/97n5s45eYnc",
-      noteUrl: "/lessonNotes/java-notes/java-video-001-note.pdf",
-      isPublished: true,
-      challenge: {
-        episode: "01",
-        intro: "Test your foundational knowledge before moving on to the next video!",
-        challenges: [
-          {
-            title: "Challenge 1: The Acronym Master",
-            description: "Industry standards rely on core terminology.",
-            tasks: [
-              "Define exactly what the acronym 'WORA' stands for.",
-              "Explain why this concept changed the software industry in the 90s."
-            ]
-          },
-          {
-            title: "Challenge 2: The History Quiz",
-            description: "Identify if the following statements are True or False:",
-            tasks: [
-              "Java was originally named 'Pine' after a tree outside the office.",
-              "Java was created by James Gosling and the 'Green Team'.",
-              "Today, Java is owned and maintained by Microsoft."
-            ]
-          },
-          {
-            title: "Challenge 3: Spot the Bug (The Skeleton)",
-            description: "A junior developer wrote their first Java program, but it won't compile. Find and fix the 2 major errors.",
-            tasks: [
-              "Check for case-sensitivity in keywords.",
-              "Verify the method signature for the entry point."
-            ],
-            codeSnippet: `Public class Main {\n    public void main(String[] args) {\n        System.out.println("I am learning Java!");\n    }\n}`,
-            solution: {
-              explanation: "1. Java is case-sensitive: 'Public' must be lowercase 'public'.\n2. The main method must be 'static' so the JVM can run it without creating an instance.",
-              fixedCode: `public class Main {\n    public static void main(String[] args) {\n        System.out.println("I am learning Java!");\n    }\n}`
-            }
-          }
-        ]
-      }
-    }
-  ]
-}
+    id: "java-mastery",
+    title: "Enterprise Java Mastery 2026",
+    description:
+      "A deep dive into the world's most robust language. From foundations to enterprise-grade architecture.",
+    thumbnail: "/academy/java-thum.jpg",
+    lessons: [
+      {
+        id: "java-v1",
+        title: "01. Introduction & History of Java",
+        videoUrl: "https://youtu.be/97n5s45eYnc",
+        noteUrl: "/lessonNotes/java-notes/java-video-001-note.pdf",
+        isPublished: true,
+        challenge: {
+          episode: "01",
+          intro:
+            "Test your foundational knowledge before moving on to the next video!",
+          challenges: [
+            {
+              title: "Challenge 1: The Acronym Master",
+              description: "Industry standards rely on core terminology.",
+              tasks: [
+                "Define exactly what the acronym 'WORA' stands for.",
+                "Explain why this concept changed the software industry in the 90s.",
+              ],
+            },
+            {
+              title: "Challenge 2: The History Quiz",
+              description:
+                "Identify if the following statements are True or False:",
+              tasks: [
+                "Java was originally named 'Pine' after a tree outside the office.",
+                "Java was created by James Gosling and the 'Green Team'.",
+                "Today, Java is owned and maintained by Microsoft.",
+              ],
+            },
+            {
+              title: "Challenge 3: Spot the Bug (The Skeleton)",
+              description:
+                "A junior developer wrote their first Java program, but it won't compile. Find and fix the 2 major errors.",
+              tasks: [
+                "Check for case-sensitivity in keywords.",
+                "Verify the method signature for the entry point.",
+              ],
+              codeSnippet: `Public class Main {\n    public void main(String[] args) {\n        System.out.println("I am learning Java!");\n    }\n}`,
+              solution: {
+                explanation:
+                  "1. Java is case-sensitive: 'Public' must be lowercase 'public'.\n2. The main method must be 'static' so the JVM can run it without creating an instance.",
+                fixedCode: `public class Main {\n    public static void main(String[] args) {\n        System.out.println("I am learning Java!");\n    }\n}`,
+              },
+            },
+          ],
+        },
+      },
+    ],
+  },
 ];
