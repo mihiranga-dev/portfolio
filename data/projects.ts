@@ -31,6 +31,7 @@ export const projects: Project[] = [
     ],
     challenges:
       "The main challenge was handling mixed local languages (like Singlish) and out-of-stock items during a chat. I solved this by building a simple intent filter before calling the AI, and checking product availability directly with Kapruka's MCP.",
+    image: "/projects/kapruka_dashboard.webp",
     tech: [
       "Next.js",
       "TypeScript",
@@ -40,7 +41,7 @@ export const projects: Project[] = [
       "DigitalOcean",
     ],
     link: "/projects/kapruka-ai-agent",
-    github: "https://github.com/mihiranga-dev/kapruka-ai-workspace",
+    liveDemo: "https://kapruka-ai.netlify.app",
   },
 
   {
@@ -59,6 +60,7 @@ export const projects: Project[] = [
     ],
     challenges:
       "Preventing timestamp drifting during translation and avoiding HTTP request timeouts on large 60+ minute subtitle files. I resolved this by designing a custom regex timestamp parser and implementing asynchronous task workers for non blocking file processing.",
+    image: "/projects/getquicksubs_dashboard.png",
     tech: [
       "React",
       "Vite",
@@ -88,6 +90,7 @@ export const projects: Project[] = [
     ],
     challenges:
       "The primary challenge was managing complex relational data between departments and employees without sacrificing speed. I solved this by implementing efficient indexing strategies in Oracle and using DTOs in Spring Boot to minimize data transfer.",
+    image: "/projects/ems_dashboard.png",
     tech: ["React", "Spring Boot", "Oracle DB", "Java"],
     link: "/projects/ems",
     github: "https://github.com/mihiranga-dev/Apex-EMS",
@@ -107,6 +110,7 @@ export const projects: Project[] = [
     ],
     challenges:
       "Resolving severe servo motor jitter caused by electrical noise across shared rails. I solved this by implementing physical power rail isolation and voltage regulation via buck converters.",
+    image: "/projects/podpal.jpeg",
     tech: ["Arduino Due", "ESP8266", "Flutter", "C++", "IoT"],
     link: "/projects/podpal",
     github:
