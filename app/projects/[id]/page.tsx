@@ -1,6 +1,3 @@
-"use client";
-
-import { use } from "react";
 import { projects } from "@/data/projects";
 import {
   ArrowLeft,
@@ -9,22 +6,25 @@ import {
   ShieldCheck,
   Zap,
   Code2,
-  Globe,
   Users,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export const runtime = "edge";
+export function generateStaticParams() {
+  return projects.map((project) => ({
+    id: project.id,
+  }));
+}
 
-export default function ProjectDetail({
+export default async function ProjectDetail({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const resolvedParams = use(params);
-  const project = projects.find((p) => p.id === resolvedParams.id);
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
 
   if (!project) return notFound();
 
@@ -32,9 +32,6 @@ export default function ProjectDetail({
     <div className="max-w-4xl mx-auto py-6 md:py-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
       <Link
         href="/"
-        onClick={() => {
-          window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-        }}
         className="group flex items-center gap-2 text-slate-500 hover:text-primary transition-colors mb-12"
       >
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -74,7 +71,7 @@ export default function ProjectDetail({
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-xl font-bold hover:opacity-90 transition-opacity "
+              className="flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-xl font-bold hover:opacity-90 transition-opacity"
             >
               <Github className="w-5 h-5" /> Code Repo
             </a>
