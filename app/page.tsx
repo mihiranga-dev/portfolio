@@ -115,7 +115,7 @@ export default function Home() {
 
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
                 <a
-                  href="/Mihiranga Dissanayake - Resume.pdf"
+                  href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-bold hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all"
