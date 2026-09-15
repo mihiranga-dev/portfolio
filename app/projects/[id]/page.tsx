@@ -112,6 +112,7 @@ export default function ProjectDetail({
                   src={project.image}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 896px) 100vw, 896px"
                   className="object-cover object-top"
                   priority
                 />
